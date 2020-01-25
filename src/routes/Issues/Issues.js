@@ -3,12 +3,7 @@ import './Issues.css';
 import { Pagination } from 'components/Pagination';
 
 const Issues = () => {
-	return (
-		<div>
-			Issues
-			<Pagination />
-		</div>
-	);
+	return <div>Issues</div>;
 };
 
 export default Issues;

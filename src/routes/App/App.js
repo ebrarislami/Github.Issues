@@ -1,17 +1,18 @@
 import React from 'react';
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
-import Issues from '../Issues/Issues';
-import IssueDetail from '../IssueDetail/IssueDetail';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { renderRoutes } from 'react-router-config';
 import './App.css';
+import routes from 'config/routes';
+import { Header } from 'components/Header';
+import { Footer } from 'components/Footer';
 
 const App = () => {
 	return (
 		<Router>
 			<div className="App">
-				<Switch>
-					<Route exact path="/" component={Issues} />
-					<Route path="/:id" component={IssueDetail} />
-				</Switch>
+				<Header />
+				<div className="App-Content">{renderRoutes(routes)}</div>
+				<Footer />
 			</div>
 		</Router>
 	);
