@@ -1,12 +1,13 @@
 .IssueComment {
 	display: flex;
-	align-items: flex-start;
 }
 
 .IssueComment-ProfilePic {
-	width: 40px;
-	height: 40px;
+	display: flex;
+	width: 40px !important;
+	height: 40px !important;
 	margin-right: 2rem;
+	flex-shrink: 0;
 }
 
 .IssueComment-Item {
