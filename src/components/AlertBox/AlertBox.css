@@ -1,0 +1,19 @@
+.AlertBox {
+	border-radius: 3px;
+	padding: 1.5rem;
+	text-align: center;
+}
+
+.AlertBox-info {
+	background-color: #fff;
+	border: 1px solid #d1d5da;
+}
+
+.AlertBox-error {
+	background-color: #e36209;
+	border: 1px solid #e36209;
+}
+
+.AlertBox-error span {
+	color: white;
+}

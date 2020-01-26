@@ -4,7 +4,8 @@ import './Pagination.css';
 
 const AppPagination = props => {
 	const pageSize = 25;
-
+	const { issues, page, onChange } = props;
+	const { total_count } = issues;
 	const item = (current, type, originalElement) => {
 		if (type === 'prev') {
 			return <a>Previous</a>;
@@ -15,7 +16,7 @@ const AppPagination = props => {
 		return originalElement;
 	};
 
-	return <Pagination pageSize={pageSize} total={10} itemRender={item} />;
+	return <Pagination current={+page} onChange={onChange} pageSize={pageSize} total={total_count} itemRender={item} />;
 };
 
 export default AppPagination;
