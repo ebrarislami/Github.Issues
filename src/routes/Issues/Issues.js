@@ -13,6 +13,15 @@ const Issues = props => {
 	const [issues, setIssues] = useState({});
 	const [page, setPage] = useState(1);
 
+	useEffect(() => {
+		const filter = qs.parse(props.location.search, { ignoreQueryPrefix: true });
+		if (filter && filter.page) {
+			setPage(filter.page);
+		}
+
+		getIssues(filter);
+	}, [props.location.search]);
+
 	const getIssues = async filter => {
 		const page = filter.page || 1;
 		setLoading(true);
@@ -26,15 +35,6 @@ const Issues = props => {
 			setLoadingFailed(true);
 		}
 	};
-
-	useEffect(() => {
-		const filter = qs.parse(props.location.search, { ignoreQueryPrefix: true });
-		if (filter && filter.page) {
-			setPage(filter.page);
-		}
-
-		getIssues(filter);
-	}, [props.location.search]);
 
 	const onPageChangeHandler = page => {
 		setPage(page);
