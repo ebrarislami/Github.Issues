@@ -1,10 +1,11 @@
 import React from 'react';
 import moment from 'moment';
+import ReactMarkdown from 'react-markdown';
+import { CodeBlock } from 'components/CodeBlock';
 import './IssueComment.css';
 
 const IssueComment = props => {
 	const { comment } = props;
-	console.log(comment);
 	return (
 		<div className="IssueComment">
 			<img className="IssueComment-ProfilePic" alt="user profile pic" src={comment.user.avatar_url} />
@@ -14,7 +15,9 @@ const IssueComment = props => {
 					<strong>{comment.user.login}</strong>&nbsp;
 					<span>commented {moment(comment.created_at).fromNow()}</span>
 				</div>
-				<div className="IssueComment-Body">{comment.body}</div>
+				<div className="IssueComment-Body">
+					<ReactMarkdown source={comment.body} renderers={{ code: CodeBlock }} />
+				</div>
 			</div>
 		</div>
 	);
