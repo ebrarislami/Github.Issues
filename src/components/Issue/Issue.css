@@ -36,7 +36,8 @@
 .Issue-Title a {
 	color: #24292e;
 	margin-right: 1rem;
-	line-height: 2;
+	line-height: 1.5;
+	word-break: break-word;
 }
 
 .Issue-Title a:hover {
@@ -67,6 +68,7 @@
 .Issue-Comments {
 	display: flex;
 	align-items: center;
+	margin-left: 1rem;
 }
 
 .Issue-Comments span {
