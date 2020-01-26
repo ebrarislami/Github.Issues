@@ -27,6 +27,7 @@
 .Issue-Title {
 	display: flex;
 	align-items: center;
+	margin-top: 0.3rem;
 }
 
 .Issue-Title h3 {
