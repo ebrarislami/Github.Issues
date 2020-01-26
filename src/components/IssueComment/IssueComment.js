@@ -1,7 +1,8 @@
 import React from 'react';
 import moment from 'moment';
 import ReactMarkdown from 'react-markdown';
-import { CodeBlock } from 'components/CodeBlock';
+import { CodeBlockRenderer } from 'components/CodeBlockRenderer';
+import { ImageRenderer } from 'components/ImageRenderer';
 import './IssueComment.css';
 
 const IssueComment = props => {
@@ -16,7 +17,7 @@ const IssueComment = props => {
 					<span>commented {moment(comment.created_at).fromNow()}</span>
 				</div>
 				<div className="IssueComment-Body">
-					<ReactMarkdown source={comment.body} renderers={{ code: CodeBlock }} />
+					<ReactMarkdown source={comment.body} renderers={{ code: CodeBlockRenderer, image: ImageRenderer }} />
 				</div>
 			</div>
 		</div>
