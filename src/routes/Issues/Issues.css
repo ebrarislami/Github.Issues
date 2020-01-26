@@ -3,3 +3,9 @@
 	flex-direction: column;
 	align-items: center;
 }
+
+.Issues-Loader {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+}

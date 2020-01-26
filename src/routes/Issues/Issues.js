@@ -47,7 +47,7 @@ const Issues = props => {
 
 	return (
 		<>
-			{loading && <Loader />}
+			{loading && <Loader classes="Issues-Loader" />}
 			{loadingFailed && <AlertBox type="error" message="Error loading issues!" />}
 			{!loading && !loadingFailed && !issues.total_count ? <AlertBox type="info" message="No issues found!" /> : null}
 			{!loading && !loadingFailed && issues.total_count ? (
