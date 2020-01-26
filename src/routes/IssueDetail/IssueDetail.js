@@ -7,6 +7,7 @@ import axios from 'config/axios';
 
 const IssueDetail = props => {
 	const [issue, setIssue] = useState({});
+	const [comments, setComments] = useState({});
 	const [loading, setLoading] = useState(false);
 	const [loadingFailed, setLoadingFailed] = useState(false);
 
@@ -19,8 +20,13 @@ const IssueDetail = props => {
 		setLoading(true);
 		setLoadingFailed(false);
 		try {
-			const response = await axios.get(`repos/facebook/react/issues/${id}`);
-			setIssue(response.data);
+			const getSingleIssue = axios.get(`repos/facebook/react/issues/${id}`);
+			const getComments = axios.get(`repos/facebook/react/issues/${id}/comments`);
+			const response = await Promise.all([getSingleIssue, getComments]);
+			const singleIssue = response[0].data;
+			const comments = response[1].data;
+			setIssue(singleIssue);
+			setComments(comments);
 			setLoading(false);
 		} catch (err) {
 			setLoading(false);
@@ -35,7 +41,7 @@ const IssueDetail = props => {
 			{!loading && !loadingFailed && !issue.id ? <AlertBox type="info" message="No issue found!" /> : null}
 			{!loading && !loadingFailed && issue.id && (
 				<div className="IssueDetail">
-					<SingleIssue issue={issue} />
+					<SingleIssue comments={comments} issue={issue} />
 				</div>
 			)}
 		</>

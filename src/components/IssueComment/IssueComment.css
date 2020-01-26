@@ -1,0 +1,89 @@
+.IssueComment {
+	display: flex;
+	align-items: flex-start;
+}
+
+.IssueComment-ProfilePic {
+	width: 40px;
+	height: 40px;
+	margin-right: 2rem;
+}
+
+.IssueComment-Item {
+	position: relative;
+	color: #24292e;
+	background-color: #fff;
+	border: 1px solid #d1d5da;
+	border-radius: 3px;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 3rem;
+}
+
+.IssueComment-Item:after {
+	content: '';
+	display: block;
+	position: absolute;
+	left: 2rem;
+	bottom: -3.1rem;
+	width: 0.2rem;
+	height: 3.1rem;
+	background-color: #d1d5da;
+}
+
+.IssueComment:last-child .IssueComment-Item:after {
+	display: none;
+}
+
+.IssueComment-Header:after,
+.IssueComment-Header:before {
+	content: '';
+	display: block;
+	position: absolute;
+	left: -1rem;
+	width: 0;
+	height: 0;
+	border-style: solid;
+}
+
+.IssueComment-Header:after {
+	top: 1.2rem;
+	left: -2rem;
+	border-color: transparent transparent transparent #f6f8fa;
+	border-width: 10px;
+	transform: rotate(180deg);
+}
+
+.IssueComment-Header:before {
+	top: 1.1rem;
+	left: -2.2rem;
+	border-color: transparent transparent transparent #d1d5da;
+	border-width: 11px;
+	transform: rotate(180deg);
+}
+
+.IssueComment-Header {
+	position: relative;
+	display: flex;
+	align-items: center;
+	color: #586069;
+	background-color: #f6f8fa;
+	border-bottom: 1px solid #d1d5da;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	padding: 1rem 1.6rem;
+}
+
+.IssueComment-Body {
+	padding: 1.6rem;
+}
+
+@media only screen and (max-width: 425px) {
+	.IssueComment-Header {
+		font-size: 10px;
+	}
+
+	.IssueComment-Body {
+		font-size: 12px;
+	}
+}

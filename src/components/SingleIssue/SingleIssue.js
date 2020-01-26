@@ -2,10 +2,11 @@ import React from 'react';
 import moment from 'moment';
 import infoRedIcon from 'assets/icons/info-closed-white.svg';
 import infoGreenIcon from 'assets/icons/info-open-white.svg';
+import { IssueComments } from 'components/IssueComments';
 import './SingleIssue.css';
 
 const SingleIssue = props => {
-	const { issue } = props;
+	const { issue, comments } = props;
 	return (
 		<div className="SingleIssue">
 			<div className="SingleIssue-Title">
@@ -22,6 +23,9 @@ const SingleIssue = props => {
 					<span className="SingleIssue-Username">{issue.user.login}</span> opened this issue{' '}
 					{moment(issue.created_at).fromNow()} &middot; {issue.comments} comment{issue.comments !== 1 && 's'}
 				</p>
+			</div>
+			<div className="SingleIssue-Comments">
+				<IssueComments comments={[issue, ...comments]} />
 			</div>
 		</div>
 	);
