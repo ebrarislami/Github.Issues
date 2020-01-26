@@ -16,7 +16,11 @@ const AppPagination = props => {
 		return originalElement;
 	};
 
-	return <Pagination current={+page} onChange={onChange} pageSize={pageSize} total={total_count} itemRender={item} />;
+	return (
+		<div className="Pagination">
+			<Pagination current={+page} onChange={onChange} pageSize={pageSize} total={total_count} itemRender={item} />
+		</div>
+	);
 };
 
 export default AppPagination;

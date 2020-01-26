@@ -42,8 +42,7 @@ const Issues = props => {
 	};
 
 	const onIssueClickedHandler = id => {
-		props.history.push('/dsds');
-		console.log('Issue Clicked');
+		props.history.push(`/${id}`);
 	};
 
 	return (

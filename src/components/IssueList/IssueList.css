@@ -1,4 +1,25 @@
 .IssueList {
 	display: flex;
 	margin: 1rem 0;
+	background-color: #fff;
+	border: 1px solid #d1d5da;
+	border-radius: 3px;
+	width: 100%;
+	flex-direction: column;
+}
+
+.IssueList-Header {
+	padding: 1.6rem;
+	margin: -1px 0 0;
+	background-color: #f6f8fa;
+	border-top: 1px solid #d1d5da;
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+	display: flex;
+	width: 100%;
+	align-items: center;
+}
+
+.IssueList-Header span {
+	margin-left: 1rem;
 }

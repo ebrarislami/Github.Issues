@@ -45,3 +45,7 @@
 .ant-pagination-item-active a {
 	color: white;
 }
+
+.Pagination {
+	margin: 2rem 0;
+}
