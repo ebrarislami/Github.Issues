@@ -13,7 +13,7 @@ const IssueDetail = props => {
 	useEffect(() => {
 		const id = props.match.params.id;
 		getIssue(id);
-	}, []);
+	}, [props.match.params.id]);
 
 	const getIssue = async id => {
 		setLoading(true);

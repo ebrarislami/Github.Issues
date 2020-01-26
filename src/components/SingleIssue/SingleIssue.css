@@ -1,2 +1,58 @@
 .SingleIssue {
+	display: flex;
+	flex-direction: column;
+	margin: 2rem 0;
+}
+
+.SingleIssue-Title {
+	word-break: break-word !important;
+	word-wrap: break-word !important;
+	overflow-wrap: break-word !important;
+}
+
+.SingleIssue-Title span {
+	color: #6a737d;
+}
+
+.SingleIssue-Extra {
+	display: flex;
+	align-items: center;
+	border-bottom: 1px solid #e1e4e8;
+	padding-bottom: 1.5rem;
+}
+
+.SingleIssue-Extra p {
+	margin: 0;
+}
+
+.SingleIssue-Username {
+	color: #586069 !important;
+	font-weight: bold;
+}
+
+.SingleIssue-Label {
+	display: inline-block;
+	padding: 4px 8px;
+	font-weight: 600;
+	line-height: 2rem;
+	color: #fff;
+	text-align: center;
+	white-space: nowrap;
+	background-color: #6a737d;
+	border-radius: 3px;
+	margin-right: 1rem;
+}
+
+.SingleIssue-Label-open {
+	background-color: #2cbe4e;
+}
+
+.SingleIssue-Label-closed {
+	background-color: #cb2431;
+}
+
+.SingleIssue-Label span {
+	color: white;
+	font-weight: bold;
+	margin-left: 0.5rem;
 }
