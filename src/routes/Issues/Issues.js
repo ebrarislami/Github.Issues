@@ -11,19 +11,18 @@ import { IssuesContext } from './IssuesContext/IssueContext';
 const Issues = props => {
 	const [loading, setLoading] = useState(false);
 	const [loadingFailed, setLoadingFailed] = useState(false);
-	// const [issues, setIssues] = useState({});
-	const [page, setPage] = useState(1);
-	const [issues, setIssues] = useContext(IssuesContext);
+	const [issues, setIssues, page, setPage] = useContext(IssuesContext);
 
 	useEffect(() => {
 		const filter = qs.parse(props.location.search, { ignoreQueryPrefix: true });
+
+		if (filter && page !== filter.page) {
+			getIssues(filter);
+		}
+
 		if (filter && filter.page) {
 			setPage(filter.page);
 		}
-
-		if (issues && issues.items) return;
-
-		getIssues(filter);
 	}, [props.location.search]);
 
 	const getIssues = async filter => {
