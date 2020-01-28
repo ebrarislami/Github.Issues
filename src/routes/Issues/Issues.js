@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './Issues.css';
 import axios from 'config/axios';
 import * as qs from 'query-string';
@@ -6,18 +6,22 @@ import { Pagination } from 'components/Pagination';
 import { IssueList } from 'components/IssueList';
 import { AlertBox } from 'components/AlertBox';
 import { Loader } from 'components/Loader';
+import { IssuesContext } from './IssuesContext/IssueContext';
 
 const Issues = props => {
 	const [loading, setLoading] = useState(false);
 	const [loadingFailed, setLoadingFailed] = useState(false);
-	const [issues, setIssues] = useState({});
+	// const [issues, setIssues] = useState({});
 	const [page, setPage] = useState(1);
+	const [issues, setIssues] = useContext(IssuesContext);
 
 	useEffect(() => {
 		const filter = qs.parse(props.location.search, { ignoreQueryPrefix: true });
 		if (filter && filter.page) {
 			setPage(filter.page);
 		}
+
+		if (issues && issues.items) return;
 
 		getIssues(filter);
 	}, [props.location.search]);

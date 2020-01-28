@@ -5,16 +5,19 @@ import './App.css';
 import routes from 'config/routes';
 import { Header } from 'components/Header';
 import { Footer } from 'components/Footer';
+import { IssuesProvider } from 'routes/Issues';
 
 const App = () => {
 	return (
-		<Router>
-			<div className="App">
-				<Header />
-				<div className="App-Content">{renderRoutes(routes)}</div>
-				<Footer />
-			</div>
-		</Router>
+		<IssuesProvider>
+			<Router>
+				<div className="App">
+					<Header />
+					<div className="App-Content">{renderRoutes(routes)}</div>
+					<Footer />
+				</div>
+			</Router>
+		</IssuesProvider>
 	);
 };
 
